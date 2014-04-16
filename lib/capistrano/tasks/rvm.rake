@@ -12,7 +12,7 @@ namespace :rvm do
   end
 
   task :hook do
-    on release_roles( fetch(:rvm_roles) ) do
+    on roles(fetch(:rvm_roles, :all)) do
       rvm_path = fetch(:rvm_custom_path)
       rvm_path ||= case fetch(:rvm_type)
       when :auto
